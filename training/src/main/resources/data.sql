@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS client;
+
+CREATE TABLE client (
+  id INTEGER PRIMARY KEY,
+  cedula INTEGER NOT NULL,
+  firstname VARCHAR(250) NOT NULL,
+  lastname VARCHAR(250) NOT NULL,
+  age VARCHAR(250) NOT NULL
+);
