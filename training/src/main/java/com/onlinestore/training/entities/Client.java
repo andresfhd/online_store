@@ -23,38 +23,47 @@ public class Client {
     }
 
     public void setId(Long id) {
+
         this.id = id;
     }
 
     public Long getCedula() {
+
         return cedula;
     }
 
     public void setCedula(Long cedula) {
+
         this.cedula = cedula;
     }
 
     public String getFirstName() {
+
         return firstName;
     }
 
     public void setFirstName(String firstName) {
+
         this.firstName = firstName;
     }
 
     public String getLastName() {
+
         return lastName;
     }
 
     public void setLastName(String lastName) {
+
         this.lastName = lastName;
     }
 
     public int getAge() {
+
         return age;
     }
 
     public void setAge(int age) {
+
         this.age = age;
     }
 }

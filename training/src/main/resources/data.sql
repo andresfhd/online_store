@@ -7,3 +7,34 @@ CREATE TABLE client (
   lastname VARCHAR(250) NOT NULL,
   age VARCHAR(250) NOT NULL
 );
+
+DROP TABLE IF EXISTS seller;
+
+CREATE TABLE seller(
+    id INTEGER PRIMARY KEY,
+    codvende INTEGER NOT NULL,
+    firstname VARCHAR (250) NOT NULL,
+    lastname VARCHAR (250) NOT NULL,
+    age VARCHAR(250) NOT NULL
+ );
+
+DROP TABLE IF EXISTS item;
+
+CREATE TABLE item(
+    id INTEGER PRIMARY KEY,
+    nombre VARCHAR(250) NOT NULL,
+    cantidad INTEGER NOT NULL,
+    codigo VARCHAR(250) NOT NULL,
+    precio DOUBLE NOT NULL
+);
+
+DROP TABLE IF EXISTS sale;
+
+CREATE TABLE sale(
+    id INTEGER PRIMARY KEY,
+    fecha VARCHAR(250) NOT NULL,
+    idproducto VARCHAR(250) NOT NULL,
+    idcliente VARCHAR(250) NOT NULL,
+    idvendedor VARCHAR(250) NOT NULL,
+    totalventa DOUBLE NOT NULL
+)

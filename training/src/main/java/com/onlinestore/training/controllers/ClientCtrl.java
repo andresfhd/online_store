@@ -16,6 +16,7 @@ public class ClientCtrl {
 
     @GetMapping
     public List<Client> findAll() {
+
         return clientService.findAll();
     }
 
@@ -27,11 +28,14 @@ public class ClientCtrl {
 
     @PutMapping
     public String edit(@RequestBody Client client) {
+
+        clientService.updateClient(client);
         return "Cliente actualizado exitosamente.";
     }
 
     @DeleteMapping
-    public String delete(@RequestParam("id") String clientId) {
+    public String delete(@RequestParam("id") Long clientId) {
+        clientService.deleteUser(clientId);
         return "Cliente eliminado exitosamente.";
     }
 }
