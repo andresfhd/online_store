@@ -20,11 +20,7 @@ public class Sale {
         inverseJoinColumns = @JoinColumn(name="item_id"))
     private Item item;
 
-    /*preguntar a pipe ->private Set<Item> item*/
-
-
-    /*@Column(name = "idproducto")
-    private String idProducto;*/
+    
 
     @Column(name = "idcliente")
     private String idCliente;
