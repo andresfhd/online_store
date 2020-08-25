@@ -13,16 +13,14 @@ public class Sale {
     private Long id;
     @Column(name = "fecha")
     private String fecha;
-    /*
+
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name="sale_item",
+    @JoinTable(name="idproducto",
         joinColumns = @JoinColumn(name="sale_id"),
         inverseJoinColumns = @JoinColumn(name="item_id"))
-    private Item item; /*preguntar a pipe ->private Set<Item> item
-    */
+    private Item item;
 
-    @Column(name = "idproducto")
-    private String idProducto;
+    
 
     @Column(name = "idcliente")
     private String idCliente;
@@ -47,14 +45,14 @@ public class Sale {
         this.fecha = fecha;
     }
 
-
+    /*
     public String getIdProducto() {
         return idProducto;
     }
 
     public void setIdProducto(String idProducto) {
         this.idProducto = idProducto;
-    }
+    }*/
 
     public String getIdCliente() {
         return idCliente;
