@@ -1,40 +1,44 @@
+DROP TABLE IF EXISTS sale;
 DROP TABLE IF EXISTS client;
+DROP TABLE IF EXISTS seller;
+DROP TABLE IF EXISTS item;
 
 CREATE TABLE client (
-  id INTEGER PRIMARY KEY,
+  idclient INTEGER PRIMARY KEY,
   cedula INTEGER NOT NULL,
   firstname VARCHAR(250) NOT NULL,
   lastname VARCHAR(250) NOT NULL,
-  age VARCHAR(250) NOT NULL
+  age VARCHAR(250) NOT NULL,
+  CONSTRAINT PK_Client PRIMARY KEY (idclient)
 );
 
-DROP TABLE IF EXISTS seller;
-
 CREATE TABLE seller(
-    id INTEGER PRIMARY KEY,
+    idseller INTEGER PRIMARY KEY,
     codvende INTEGER NOT NULL,
     firstname VARCHAR (250) NOT NULL,
     lastname VARCHAR (250) NOT NULL,
-    age VARCHAR(250) NOT NULL
+    age VARCHAR(250) NOT NULL,
+    CONSTRAINT PK_Seller PRIMARY KEY (idseller)
  );
 
-DROP TABLE IF EXISTS item;
-
 CREATE TABLE item(
-    id INTEGER PRIMARY KEY,
+    iditem INTEGER PRIMARY KEY,
     nombre VARCHAR(250) NOT NULL,
     cantidad INTEGER NOT NULL,
     codigo VARCHAR(250) NOT NULL,
-    precio DOUBLE NOT NULL
+    precio DOUBLE NOT NULL,
+    CONSTRAINT PK_Item PRIMARY KEY (iditem)
 );
 
-DROP TABLE IF EXISTS sale;
-
 CREATE TABLE sale(
-    id INTEGER PRIMARY KEY,
+    idsale INTEGER PRIMARY KEY,
     fecha VARCHAR(250) NOT NULL,
-    idproducto VARCHAR(250) NOT NULL,
-    idcliente VARCHAR(250) NOT NULL,
-    idvendedor VARCHAR(250) NOT NULL,
-    totalventa DOUBLE NOT NULL
+    iditem VARCHAR(250) NOT NULL,
+    idclient VARCHAR(250) NOT NULL,
+    idseller VARCHAR(250) NOT NULL,
+    totalventa DOUBLE NOT NULL,
+    CONSTRAINT PK_Sale PRIMARY KEY (idsale),
+    FOREIGN KEY (iditem) REFERENCES item(iditem),
+    FOREIGN KEY (idclient) REFERENCES client(idclient),
+    FOREIGN KEY (idseller) REFERENCES seller(idseller)
 )

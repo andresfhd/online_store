@@ -19,8 +19,14 @@ public class SaleCtrl {
 
     @GetMapping
     public List<Sale> findAll(){
-
         return  saleService.findAll();
+    }
+
+    @GetMapping(value="/byClient")
+    public List<Sale> findByClient(@RequestParam("id") Long idClient) {
+        Client c = new Client();
+        c.setIdClient(idClient);
+        return  saleService.findByClient(c);
     }
 
     @PostMapping

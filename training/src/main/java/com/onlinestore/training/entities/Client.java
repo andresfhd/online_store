@@ -8,7 +8,8 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    @Column(name = "idclient")
+    private Long idClient;
     @Column(name = "cedula")
     private Long cedula;
     @Column(name = "firstname")
@@ -18,13 +19,12 @@ public class Client {
     @Column(name = "age")
     private int age;
 
-    public Long getId() {
-        return id;
+    public Long getIdClient() {
+        return idClient;
     }
 
-    public void setId(Long id) {
-
-        this.id = id;
+    public void setIdClient(Long idClient) {
+        this.idClient = idClient;
     }
 
     public Long getCedula() {

@@ -8,7 +8,8 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name = "iditem")
+    private Long idItem;
     @Column(name="nombre")
     private String nombre;
     @Column(name="cantidad")
@@ -18,12 +19,12 @@ public class Item {
     @Column(name="precio")
     private double precio;
 
-    public Long getId() {
-        return id;
+    public Long getIdItem() {
+        return idItem;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdItem(Long idItem) {
+        this.idItem = idItem;
     }
 
     public String getNombre() {

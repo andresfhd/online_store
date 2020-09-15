@@ -2,6 +2,7 @@ package com.onlinestore.training.services;
 
 import com.onlinestore.training.entities.Client;
 import com.onlinestore.training.entities.Sale;
+import com.onlinestore.training.repository.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import java.util.List;
 public class SaleService {
 
     @Autowired
-    CrudRepository<Sale, Long> saleCrudRepository;
+    SaleRepository saleCrudRepository;
 
     public void create (Sale sale){
 
@@ -22,6 +23,11 @@ public class SaleService {
     public List<Sale> findAll(){
         return (List<Sale>)
                 saleCrudRepository.findAll();
+    }
+
+    public List<Sale> findByClient(Client client){
+        return (List<Sale>)
+                saleCrudRepository.findByClient(client);
     }
 
     public  void deleteSale(Long id){

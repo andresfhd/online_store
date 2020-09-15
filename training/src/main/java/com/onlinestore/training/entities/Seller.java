@@ -7,7 +7,8 @@ public class Seller {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    @Column(name = "idseller")
+    private Long idSeller;
     @Column(name = "codvende")
     private Long codvende;
     @Column(name = "firstname")
@@ -17,12 +18,12 @@ public class Seller {
     @Column(name = "age")
     private int age;
 
-    public Long getId() {
-        return id;
+    public Long getIdSeller() {
+        return idSeller;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdSeller(Long idSeller) {
+        this.idSeller = idSeller;
     }
 
     public Long getCodvende() {

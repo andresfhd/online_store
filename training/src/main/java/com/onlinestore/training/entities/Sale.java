@@ -1,40 +1,44 @@
 package com.onlinestore.training.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 @Entity
+@NamedQuery(name = "Sale.findByClient", query = "SELECT s FROM Sale s WHERE s.client = ?1")
 @Table(name = "sale")
 public class Sale {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name = "idsale")
+    private Long idSale;
+
     @Column(name = "fecha")
     private String fecha;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name="idproducto",
-        joinColumns = @JoinColumn(name="sale_id"),
-        inverseJoinColumns = @JoinColumn(name="item_id"))
+    @JoinColumn(name = "iditem")
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Item item;
 
-    
+    @JoinColumn(name = "idclient")
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Client client;
 
-    @Column(name = "idcliente")
-    private String idCliente;
-    @Column(name = "idvendedor")
-    private String idVendedor;
+    @JoinColumn(name = "idseller")
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Seller seller;
+
     @Column(name="totalventa")
     private double totalVenta;
 
-    public Long getId() {
-        return id;
+    public Long getIdSale() {
+        return idSale;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdSale(Long idSale) {
+        this.idSale = idSale;
     }
 
     public String getFecha() {
@@ -45,29 +49,28 @@ public class Sale {
         this.fecha = fecha;
     }
 
-    /*
-    public String getIdProducto() {
-        return idProducto;
+    public Item getItem() {
+        return item;
     }
 
-    public void setIdProducto(String idProducto) {
-        this.idProducto = idProducto;
-    }*/
-
-    public String getIdCliente() {
-        return idCliente;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
+    public Client getClient() {
+        return client;
     }
 
-    public String getIdVendedor() {
-        return idVendedor;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public void setIdVendedor(String idVendedor) {
-        this.idVendedor = idVendedor;
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
     }
 
     public double getTotalVenta() {
