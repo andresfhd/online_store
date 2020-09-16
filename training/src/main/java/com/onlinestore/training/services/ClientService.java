@@ -1,6 +1,7 @@
 package com.onlinestore.training.services;
 
 import com.onlinestore.training.entities.Client;
+import com.onlinestore.training.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.Optional;
 public class ClientService {
 
     @Autowired
-    CrudRepository<Client, Long> clientCrudRepository;
+    ClientRepository clientCrudRepository;
 
     public void create(Client client) {
 

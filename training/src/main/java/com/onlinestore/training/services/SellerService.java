@@ -2,6 +2,7 @@ package com.onlinestore.training.services;
 
 
 import com.onlinestore.training.entities.Seller;
+import com.onlinestore.training.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import java.util.List;
 public class SellerService {
 
     @Autowired
-    CrudRepository<Seller, Long> sellerCrudRepository;
+    SellerRepository sellerCrudRepository;
 
     public void create(Seller seller){
 

@@ -26,8 +26,7 @@ public class SaleService {
     }
 
     public List<Sale> findByClient(Client client){
-        return (List<Sale>)
-                saleCrudRepository.findByClient(client);
+        return saleCrudRepository.findByClient(client);
     }
 
     public  void deleteSale(Long id){
